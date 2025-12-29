@@ -1,4 +1,4 @@
-export default {
+const config = {
   '**/*.{ts,tsx,js,jsx}': [
     'eslint --fix',
   ],
@@ -6,3 +6,5 @@ export default {
     () => 'tsc --noEmit',
   ],
 };
+
+export default config;
