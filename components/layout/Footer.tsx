@@ -27,7 +27,7 @@ import Link from 'next/link';
             <h4 className="font-semibold text-sm mb-4 text-foreground">Courses</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/course/javascript-masterclass" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/courses/javascript" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   JavaScript Master Class
                 </Link>
               </li>

@@ -65,11 +65,8 @@ const courses = [
 
 const CoursesPage = () => {
   return (
-    <div className="min-h-screen bg-background noise-bg">
-      
-      
-      <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 sm:px-6">
+    <div className="py-12 px-4 sm:px-6">
+      <div className="container mx-auto">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="outline" className="mb-4 border-primary/30 text-primary">
@@ -119,7 +116,7 @@ const CoursesPage = () => {
 
                     {/* Content */}
                     <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                      {course.title}
+                       {course.title}
                     </h2>
                     <p className="text-muted-foreground text-sm mb-6 line-clamp-2">
                       {course.description}
@@ -186,15 +183,12 @@ const CoursesPage = () => {
               Can&apos;t decide? Start with JavaScript — it&apos;s the foundation of modern web development.
             </p>
             <Button variant="glow" size="lg" asChild>
-              <Link href="/course/javascript-masterclass">
+              <Link href="/courses/javascript">
                 Start JavaScript Master Class
               </Link>
             </Button>
           </div>
-        </div>
-      </main>
-
-    
+      </div>
     </div>
   );
 };

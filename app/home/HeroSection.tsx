@@ -49,13 +49,13 @@ const HeroSection = () => {
         </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-300">
             <Button asChild variant="hero" size="xl">
-              <Link href="/course/javascript-masterclass">
+              <Link href="/courses/javascript">
                 Start JavaScript Master Class
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
             <Button asChild variant="heroOutline" size="xl">
-              <Link href="/course/javascript-masterclass">
+              <Link href="/courses/javascript">
                 <Play className="h-5 w-5" />
                 View Roadmap
               </Link>
