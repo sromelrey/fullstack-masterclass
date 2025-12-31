@@ -24,7 +24,7 @@ import Link from 'next/link';
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild variant="glow" size="xl">
-              <Link href="/course/javascript-masterclass">
+              <Link href="/courses/javascript">
                 Start Free Preview
                 <ArrowRight className="h-5 w-5" />
               </Link>
