@@ -2,6 +2,7 @@
 
 import { javascriptRoadmap } from "./js-roadmap";
 import { reactRoadmap } from "./reactjs-roadmap";
+import { LessonType } from "./courseData";
 
 export type RoadmapLevel = 'Beginner' | 'Intermediate' | 'Advanced';
 export type RoadmapStatus = 'available' | 'coming-soon' | 'locked';
@@ -11,6 +12,12 @@ export interface RoadmapLesson {
   title: string;
   slug: string;
   durationMin: number;
+  description?: string;
+  type?: LessonType;
+  codeExample?: {
+    fileName: string;
+    code: string;
+  };
 }
 
 export interface RoadmapProject {
@@ -23,6 +30,7 @@ export interface RoadmapModule {
   id: string;
   title: string;
   description: string;
+  icon?: string;
   lessons: RoadmapLesson[];
   projects: RoadmapProject[];
   durationHours: number;

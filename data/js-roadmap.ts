@@ -10,9 +10,47 @@ export const javascriptRoadmap: Roadmap = {
       id: 'section-1',
       title: 'Getting Started',
       description: 'Introduction to JavaScript, setting up your environment, and understanding the fundamentals.',
+      icon: '🚀',
       lessons: [
-        { id: 'l0-1', title: 'Introduction and the Goal of this Course', slug: 'introduction', durationMin: 15 },
-        { id: 'l0-2', title: 'Setup (Browser, Code Editor, and Installing Node)', slug: 'setup', durationMin: 25 },
+        { 
+          id: 'l0-1', 
+          title: 'Introduction and the Goal of this Course', 
+          slug: 'introduction', 
+          durationMin: 15,
+          type: 'video',
+          description: 'Welcome to the JavaScript Masterclass. In this introductory lesson, we outline the roadmap ahead, discuss why JavaScript is the most important language to master today, and set clear expectations for what you will achieve by the end of this journey.',
+          codeExample: {
+            fileName: 'roadmap.js',
+            code: `// Our learning path
+const masterclassRoadmap = [
+  "Execution Contexts",
+  "Types & Operators",
+  "Objects & Functions",
+  "Prototypal Inheritance",
+  "Asynchronous JS"
+];
+
+console.log("Starting journey through:", masterclassRoadmap[0]);`
+          }
+        },
+        { 
+          id: 'l0-2', 
+          title: 'Setup (Browser, Code Editor, and Installing Node)', 
+          slug: 'setup', 
+          durationMin: 25,
+          type: 'video',
+          description: 'Before we dive into the "weird parts" of JavaScript, we need a professional environment. We will set up VS Code with essential extensions, configure Chrome DevTools for deep debugging, and install Node.js to run JavaScript outside the browser.',
+          codeExample: {
+            fileName: 'setup-check.js',
+            code: `// Verify your environment
+function checkEnvironment() {
+  console.log("Node version:", process.version);
+  console.log("Environment ready for Fullstack Development!");
+}
+
+checkEnvironment();`
+          }
+        },
         { id: 'l0-3', title: 'Big Words and JavaScript', slug: 'big-words', durationMin: 20 },
         { id: 'l0-4', title: 'Understanding Frameworks and the Weird Parts', slug: 'frameworks-weird-parts', durationMin: 30 },
       ],
