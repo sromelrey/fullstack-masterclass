@@ -71,29 +71,35 @@ export const LessonContent = ({
           </div>
         )}
 
-        {/* Lesson description */}
+        {/* Lesson description - supports HTML tags */}
         <div className="prose prose-invert prose-lg max-w-none">
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            {lesson.description}
-          </p>
+          <div 
+            className="text-muted-foreground text-lg leading-relaxed [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-foreground [&>h1]:mt-8 [&>h1]:mb-4 [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:text-foreground [&>h2]:mt-6 [&>h2]:mb-3 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-foreground [&>h3]:mt-4 [&>h3]:mb-2 [&_strong]:text-white [&_b]:text-white [&>p]:mb-4"
+            dangerouslySetInnerHTML={{ 
+              __html: lesson.description
+                ?.replace(/\n\n/g, '</p><p>')
+                ?.replace(/\n/g, '<br/>') 
+                ? `<p>${lesson.description.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br/>')}</p>` 
+                : '' 
+            }}
+          />
 
-          <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">
-            What you&apos;ll learn
-          </h2>
-          <ul className="space-y-2 text-muted-foreground">
-            <li className="flex items-start gap-2">
-              <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <span>Understanding core concepts and best practices</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <span>Practical examples with real-world applications</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <span>Common pitfalls and how to avoid them</span>
-            </li>
-          </ul>
+          {/* What you'll learn - dynamic */}
+          {lesson.learningPoints && lesson.learningPoints.length > 0 && (
+            <>
+              <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">
+                What you&apos;ll learn
+              </h2>
+              <ul className="space-y-2 text-muted-foreground">
+                {lesson.learningPoints.map((point, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
 
           {/* Code example */}
           {lesson.codeExample && (
@@ -110,17 +116,18 @@ export const LessonContent = ({
             </div>
           )}
 
-          {/* Callout */}
-          <div className="mt-8 p-4 rounded-xl bg-primary/5 border border-primary/20 flex gap-3">
-            <AlertCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-            <div>
-              <h4 className="font-semibold text-foreground mb-1">Pro Tip</h4>
-              <p className="text-sm text-muted-foreground">
-                Practice writing code alongside the video. This hands-on approach 
-                significantly improves retention and understanding.
-              </p>
+          {/* Pro Tip callout - dynamic */}
+          {lesson.proTip && (
+            <div className="mt-8 p-4 rounded-xl bg-primary/5 border border-primary/20 flex gap-3">
+              <AlertCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">{lesson.proTip.title}</h4>
+                <p className="text-sm text-muted-foreground">
+                  {lesson.proTip.content}
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Actions */}
