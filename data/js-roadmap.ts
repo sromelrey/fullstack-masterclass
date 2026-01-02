@@ -17,21 +17,81 @@ export const javascriptRoadmap: Roadmap = {
           title: 'Introduction and the Goal of this Course', 
           slug: 'introduction', 
           durationMin: 15,
-          type: 'video',
-          description: 'Welcome to the JavaScript Masterclass. In this introductory lesson, we outline the roadmap ahead, discuss why JavaScript is the most important language to master today, and set clear expectations for what you will achieve by the end of this journey.',
-          codeExample: {
-            fileName: 'roadmap.js',
-            code: `// Our learning path
-const masterclassRoadmap = [
-  "Execution Contexts",
-  "Types & Operators",
-  "Objects & Functions",
-  "Prototypal Inheritance",
-  "Asynchronous JS"
-];
+          type: 'article',
+          description: `<h1>JavaScript.</h1>
 
-console.log("Starting journey through:", masterclassRoadmap[0]);`
-          }
+It runs the modern web. It powers dashboards, APIs, mobile apps, desktop apps—and more software than most people realize.
+
+Maybe you’re brand new.
+Maybe you’ve been using JavaScript for years.
+
+But here’s the real question:
+<em>Do you understand JavaScript—or do you just know how to make it <strong>work</strong>?</em>
+
+Welcome to the <strong>JavaScript Master Class.</strong>
+
+This isn’t a course about copying snippets or racing through a framework.
+This is a course about <strong>understanding JavaScript as a language</strong>—how it thinks, how it executes, and why it sometimes behaves in ways that surprise even experienced devs.
+
+I’m <strong>Romel Rey Silva</strong>, a software developer with <strong>8+ years</strong> of experience building real-world applications. In this course, I’ll share the mental models, patterns, and practical habits I’ve learned—so you can write better code, debug faster, and build with confidence.
+
+<h3>What This Course Is About</h3>
+
+Let’s be clear from the beginning:
+This course <em>isn’t</em> about using jQuery to make pages interactive, and it’s not a deep dive into Node.js features.
+
+<strong>This course is about JavaScript itself—the language.</strong>
+
+You’ll learn what’s happening <em>under the hood</em>, explore advanced concepts, and build the kind of understanding the creators of major libraries and frameworks rely on. That knowledge will make you a stronger developer—whether you’re building front-end apps, writing Node.js services, or using JavaScript in any other environment.
+
+<h3>Coming from Another Language?</h3>
+
+If you’re coming from another language like Java, C++, or C#, you’ll also learn an important truth:
+
+JavaScript may look familiar—but it <strong>doesn’t think like those languages</strong>.
+It follows a different paradigm, and it rewards a different mindset. Once you understand that, many of the “weird” parts stop feeling random—and start making sense.
+
+And the deeper you go, the more you’ll realize something surprising:
+
+<em>JavaScript isn’t just popular by accident. It’s deceptively powerful—and often genuinely beautiful.</em>
+
+<h2>My Philosophy</h2>
+
+That brings me to a simple philosophy that guides this entire course:
+
+<strong>Don’t imitate. Understand.</strong>
+
+A lot of people learn by copying code. Examples are useful—but copying alone only takes you so far. The moment you hit a tough bug, or you have to build something from scratch, imitation breaks down.
+
+<h3>What You'll Be Able to Do</h3>
+
+When you <strong>truly understand</strong> what the language is doing, you can:
+
+• debug hard problems with less guessing,
+• design cleaner solutions,
+• read great code confidently,
+• and improve or extend what others have built.
+
+So yes—we’ll write plenty of code.
+But we’ll prioritize the <strong>why</strong> behind it, so the examples become tools you can apply in real projects—not just patterns you memorize.
+
+<h3>Prerequisites</h3>
+
+All you need to start is basic JavaScript familiarity: what files are, variables, functions, and loops. If you have that foundation, you’re ready.
+
+<strong>Let’s dive in—and learn to understand JavaScript for real.</strong>
+`,
+          learningPoints: [
+            'The philosophy behind this course: understanding over imitation',
+            'How JavaScript differs from other programming languages',
+            'What topics we\'ll cover throughout the masterclass',
+            'Prerequisites and how to get the most out of this course',
+          ],
+          proTip: {
+            title: 'Pro Tip',
+            content: 'Take notes as you go through each lesson. Writing things down in your own words helps solidify concepts and gives you a personal reference to revisit later.',
+          },
+         
         },
         { 
           id: 'l0-2', 
@@ -51,7 +111,7 @@ function checkEnvironment() {
 checkEnvironment();`
           }
         },
-        { id: 'l0-3', title: 'Big Words and JavaScript', slug: 'big-words', durationMin: 20 },
+        { id: 'l0-3', title: 'JavaScript Jargons', slug: 'jargons', durationMin: 20 },
         { id: 'l0-4', title: 'Understanding Frameworks and the Weird Parts', slug: 'frameworks-weird-parts', durationMin: 30 },
       ],
       projects: [],

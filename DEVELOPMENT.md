@@ -223,6 +223,147 @@ pnpm type-check
 └── DEVELOPMENT.md         # This file
 ```
 
+## Content Authoring Guide
+
+This section covers how to create and manage course content, including lessons, modules, and rich text formatting.
+
+### Data Structure Overview
+
+Course content is defined in TypeScript files under the `data/` directory:
+
+```
+data/
+├── courseData.ts      # Type definitions for courses
+├── roadmapData.ts     # Type definitions for roadmaps
+└── js-roadmap.ts      # JavaScript course content
+```
+
+### Creating a New Lesson
+
+1. **Open the roadmap file** (e.g., `data/js-roadmap.ts`)
+
+2. **Find the module** where you want to add the lesson
+
+3. **Add a new lesson object** to the `lessons` array:
+
+```typescript
+{
+  id: 'l1-3',                    // Unique identifier
+  title: 'Your Lesson Title',    // Display title
+  slug: 'your-lesson-slug',      // URL-friendly slug
+  durationMin: 30,               // Duration in minutes
+  type: 'video',                 // 'video' | 'article' | 'exercise'
+  description: `Your lesson description here...`,
+  codeExample: {                 // Optional code example
+    fileName: 'example.js',
+    code: `// Your code here`
+  }
+}
+```
+
+### Lesson Types
+
+| Type | Description | Display |
+|------|-------------|---------|
+| `video` | Video lesson | Shows video player placeholder |
+| `article` | Written content | Text-only, no video player |
+| `exercise` | Interactive exercise | Practice-focused layout |
+
+### Rich Text Formatting in Descriptions
+
+Descriptions support **HTML tags** for rich formatting. The component automatically handles:
+- Double newlines (`\n\n`) → Paragraph breaks
+- Single newlines (`\n`) → Line breaks (`<br/>`)
+
+#### Supported HTML Tags
+
+| Tag | Purpose | Example |
+|-----|---------|---------|
+| `<h1>` | Main heading | `<h1>Welcome</h1>` |
+| `<h2>` | Section heading | `<h2>Overview</h2>` |
+| `<h3>` | Sub-section heading | `<h3>Key Points</h3>` |
+| `<strong>` or `<b>` | **Bold text** | `<strong>important</strong>` |
+| `<em>` or `<i>` | *Italic text* | `<em>emphasis</em>` |
+| `<br/>` | Line break | `line one<br/>line two` |
+| `<p>` | Paragraph | `<p>A paragraph</p>` |
+
+#### Example Description with Formatting
+
+```typescript
+description: `<h1>Welcome to JavaScript</h1>
+
+This course is about <strong>understanding</strong> the language, not just copying code.
+
+<h2>What Makes This Different</h2>
+
+You'll learn what's happening <em>under the hood</em>—the weird parts that make JavaScript powerful.
+
+<h3>My Philosophy</h3>
+
+<b>Don't imitate. Understand.</b>
+
+A lot of people learn by copying code. Examples are useful, but copying alone only takes you so far.
+
+But when you truly understand what the language is doing, you can:
+
+debug hard problems,
+design better solutions,
+read great code confidently.`
+```
+
+### Adding Code Examples
+
+Code examples appear in a styled code block below the description:
+
+```typescript
+codeExample: {
+  fileName: 'closures.js',
+  code: `function createCounter() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2`
+}
+```
+
+### Creating a New Module
+
+Modules group related lessons together:
+
+```typescript
+{
+  id: 'section-5',
+  title: 'Advanced Patterns',
+  description: 'Deep dive into advanced JavaScript patterns.',
+  icon: '🔥',                    // Emoji icon for the module
+  lessons: [
+    // ... lesson objects
+  ],
+  projects: [],                  // Optional project assignments
+  durationHours: 4,
+  level: 'Advanced',             // 'Beginner' | 'Intermediate' | 'Advanced'
+  prerequisites: ['section-4'],  // IDs of prerequisite modules
+  status: 'available',           // 'available' | 'coming-soon' | 'locked'
+  position: { x: 50, y: 50 },    // Position in roadmap visualization
+  order: 5,                      // Display order
+}
+```
+
+### Best Practices
+
+1. **Unique IDs** - Ensure every lesson and module has a unique `id`
+2. **Descriptive slugs** - Use URL-friendly slugs (lowercase, hyphens)
+3. **Accurate durations** - Estimate lesson duration realistically
+4. **Rich descriptions** - Use headings and formatting to improve readability
+5. **Code examples** - Include relevant, runnable code examples when possible
+
+---
+
 ## Additional Resources
 
 - [Husky Documentation](https://typicode.github.io/husky/)

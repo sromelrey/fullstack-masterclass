@@ -8,6 +8,11 @@ export interface Lesson {
   duration: string;
   type: LessonType;
   completed?: boolean;
+  learningPoints?: string[];
+  proTip?: {
+    title: string;
+    content: string;
+  };
   codeExample?: {
     fileName: string;
     code: string;

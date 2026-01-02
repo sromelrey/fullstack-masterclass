@@ -14,6 +14,11 @@ export interface RoadmapLesson {
   durationMin: number;
   description?: string;
   type?: LessonType;
+  learningPoints?: string[];
+  proTip?: {
+    title: string;
+    content: string;
+  };
   codeExample?: {
     fileName: string;
     code: string;
