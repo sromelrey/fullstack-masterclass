@@ -16,7 +16,7 @@ export const javascriptRoadmap: Roadmap = {
           id: 'l0-1', 
           title: 'Introduction and the Goal of this Course', 
           slug: 'introduction', 
-          durationMin: 15,
+          durationMin: 3,
           type: 'article',
           description: `<h1>JavaScript.</h1>
 
@@ -97,9 +97,27 @@ All you need to start is basic JavaScript familiarity: what files are, variables
           id: 'l0-2', 
           title: 'Setup (Browser, Code Editor, and Installing Node)', 
           slug: 'setup', 
-          durationMin: 25,
-          type: 'video',
-          description: 'Before we dive into the "weird parts" of JavaScript, we need a professional environment. We will set up VS Code with essential extensions, configure Chrome DevTools for deep debugging, and install Node.js to run JavaScript outside the browser.',
+          durationMin: 2,
+          type: 'article',
+          description: `<h1>Setting Up for Success</h1>
+
+Before we dive into the "weird parts" of JavaScript, we need a <strong>professional environment</strong>.
+A craftsman is only as good as their tools, and in modern web development, your environment is your workshop.
+
+<h2>Why This Setup?</h2>
+
+We aren't just installing programs; we are configuring a workflow. We will set up <b>VS Code</b> with essential extensions that catch errors before you even run your code, configure <b>Chrome DevTools</b> for deep debugging into the JS engine, and install <b>Node.js</b> to unlock the power of JavaScript outside the browser.`,
+          imageUrl: '/lesson_02.gif',
+          learningPoints: [
+            'Installing and configuring VS Code (Extensions: Prettier, ESLint, Live Server)',
+            'Mastering Chrome DevTools (Console, Sources, Network)',
+            'Installing Node.js and npm for server-side JavaScript',
+            'Setting up a project structure that scales'
+          ],
+          proTip: {
+            title: 'Hotkey Mastery',
+            content: 'Mastering shortcuts like Ctrl+Shift+I (Inspect) or Ctrl+` (Terminal) will save you hours of development time. Focus on speed early on!'
+          },
           codeExample: {
             fileName: 'setup-check.js',
             code: `// Verify your environment
@@ -111,8 +129,72 @@ function checkEnvironment() {
 checkEnvironment();`
           }
         },
-        { id: 'l0-3', title: 'JavaScript Jargons', slug: 'jargons', durationMin: 20 },
-        { id: 'l0-4', title: 'Understanding Frameworks and the Weird Parts', slug: 'frameworks-weird-parts', durationMin: 30 },
+        { 
+          id: 'l0-3', 
+          title: 'JavaScript Jargons', 
+          slug: 'jargons', 
+          durationMin: 20,
+          type: 'article',
+          description: `<h1>Don't Be Intimidated by the "Big Words"</h1>
+
+In the world of computer science and programming, there's a common tendency to use words that sound far more intimidating than the concepts they actually describe. We call these <b>JavaScript Jargons</b>.
+
+<h2>The Jargon Alert</h2>
+
+Throughout this course, whenever we encounter one of these complex-sounding terms, we'll trigger a <strong>Jargon Alert</strong>. This is our signal to <strong>break the glass</strong> and dive deep into the definition, stripping away the mystery and showing you the simple reality underneath.
+
+<h2>It's Just Vocabulary</h2>
+
+Remember: <i>it's just vocabulary</i>. Many of these terms deal with things you might already understand intuitively, or concepts that are surprisingly straightforward once explained. Our goal is to ensure you're not just writing code, but speaking the language of a professional engineer. 
+
+Don't be intimidated by the big words—we'll break them down together, show you how they're used under the hood, and move forward with confidence.`,
+          learningPoints: [
+            "Identifying 'Big Words' in JavaScript development",
+            "Understanding that complex terminology often hides simple concepts",
+            "How to approach new technical vocabulary without intimidation",
+            "The importance of having a shared professional vocabulary"
+          ],
+          proTip: {
+            title: 'The Translator Mindset',
+            content: 'Whenever you encounter a new technical term, try to translate it into a simple analogy. If you can explain it to a 10-year-old, you truly understand the concept.'
+          }
+        },
+        { 
+          id: 'l0-4', 
+          title: 'Understanding Frameworks and the Weird Parts', 
+          slug: 'frameworks-weird-parts', 
+          durationMin: 3,
+          type: 'article',
+          description: `<h1>Understanding, Frameworks, and the "Weird Parts"</h1>
+
+JavaScript is a language that abstracts you away from how the computer and the browser actually function. To truly master it, we must go beyond the syntax and understand how the underlying engine works.
+
+<h2>The Foundation of "Uh-huh!" Moments</h2>
+
+A lot of development involves learning things at a surface level. In this course, we are going deep. While some concepts might seem overly detailed at first, they are the <strong>fundamental building blocks</strong>. This foundational knowledge will "brighten the path" for you, turning confusion into clarity and giving you those vital "Uh-huh!" moments where everything finally clicks.
+
+<h2>The Framework Trap</h2>
+
+The open-source community has given us incredible tools like <b>jQuery</b>, <b>Angular</b>, and <b>React</b>. However, many developers fall into the trap of learning a framework before learning the language itself. 
+
+Remember: <strong>Frameworks are just JavaScript code</strong> written by other smart developers. If you can't understand the source code of the framework you're using, you're at a disadvantage. Our goal is to give you the knowledge to open up any library, understand how it works under the hood, and eventually, build your own.
+
+<h2>Embracing the "Weird Parts"</h2>
+
+If you're coming from another programming language, JavaScript might look familiar, but it behaves very differently under the hood. Its "weird parts"—the things that often confuse newcomers—are actually its most <strong>powerful and beautiful features</strong>. 
+
+We'll also keep a sharp eye out for hazards. No language is perfect, and we'll point out the "dangers" and patterns you should avoid to write robust, professional code.`,
+          learningPoints: [
+            "Why under-the-hood knowledge is essential for professional debugging",
+            "The relationship between JavaScript and the environment (Browser/Server/Engine)",
+            "The danger of 'Framework First' learning and how to avoid it",
+            "How to turn JavaScript's 'weird parts' into your greatest strengths"
+          ],
+          proTip: {
+            title: 'Source Code Curiosity',
+            content: "Don't treat frameworks as 'magic boxes'. Once you finish this course, try opening the 'node_modules' folder and reading the source code of your favorite library. You'll be surprised by how much you understand!"
+          }
+        },
       ],
       projects: [],
       durationHours: 2,
