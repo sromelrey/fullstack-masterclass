@@ -17,6 +17,8 @@ export interface Lesson {
     fileName: string;
     code: string;
   };
+  imageUrl?: string;
+  videoUrl?: string;
 }
 
 export interface Module {

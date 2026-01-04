@@ -71,6 +71,17 @@ export const LessonContent = ({
           </div>
         )}
 
+        {/* Lesson Image/GIF */}
+        {lesson.imageUrl && (
+          <div className="mb-8 rounded-2xl overflow-hidden border border-border bg-card shadow-2xl">
+            <img 
+              src={lesson.imageUrl} 
+              alt={lesson.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        )}
+
         {/* Lesson description - supports HTML tags */}
         <div className="prose prose-invert prose-lg max-w-none">
           <div 

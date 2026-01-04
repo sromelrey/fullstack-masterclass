@@ -44,7 +44,10 @@ export default function LessonPage() {
     duration: `${currentLesson.durationMin} mins`,
     type: currentLesson.type || 'video',
     completed: false,
+    learningPoints: currentLesson.learningPoints,
+    proTip: currentLesson.proTip,
     codeExample: currentLesson.codeExample,
+    imageUrl: currentLesson.imageUrl,
   };
 
   const moduleData: Module = {
