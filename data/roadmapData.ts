@@ -1,6 +1,6 @@
 // Roadmap Data Structure for Course Platform
 
-import { javascriptRoadmap } from "./js-roadmap";
+import {  javascriptRoadmap } from "./js-roadmap";
 import { reactRoadmap } from "./reactjs-roadmap";
 import { LessonType } from "./courseData";
 
