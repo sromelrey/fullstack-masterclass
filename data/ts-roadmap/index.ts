@@ -1,0 +1,101 @@
+import { Roadmap } from "../roadmapData";
+import { section_1_lessons } from "./section-1-lessons";
+import { section_2_lessons } from "./section-2-lessons";
+import { section_3_lessons } from "./section-3-lessons";
+import { section_4_lessons } from "./section-4-lessons";
+import { section_5_lessons } from "./section-5-lessons";
+import { section_6_lessons } from "./section-6-lessons";
+
+export const typescriptRoadmap: Roadmap = {
+  id: 'typescript',
+  title: 'TypeScript Mastery Path',
+  description: 'Master static typing, advanced type system features, and build scalable, type-safe applications with TypeScript.',
+  modules: [
+    {
+      id: 'ts-section-1',
+      title: 'The Static Analysis Mindset',
+      description: 'Understand how TypeScript functions as a compile-time tool, master tsconfig.json, and develop a mental model for resolving type errors.',
+      icon: '📘',
+      lessons: section_1_lessons,
+      projects: [],
+      durationHours: 2,
+      level: 'Beginner',
+      prerequisites: ['js-getting-started'],
+      status: 'available',
+      position: { x: 150, y: 0 },
+      order: 1,
+    },
+    {
+      id: 'ts-section-2',
+      title: 'Stop Fighting, Start Flowing',
+      description: 'Master core types, understand safety gaps (any vs unknown), and learn to use type narrowing to write natural, safe code.',
+      icon: '🧩',
+      lessons: section_2_lessons,
+      projects: [],
+      durationHours: 3,
+      level: 'Beginner',
+      prerequisites: ['ts-section-1'],
+      status: 'available',
+      position: { x: 150, y: 10 },
+      order: 2,
+    },
+    {
+      id: 'ts-section-3',
+      title: 'Objects & Modeling',
+      description: 'Can model real domain data cleanly with optional/readonly props, index signatures, and const assertions.',
+      icon: '🏛️',
+      lessons: section_3_lessons,
+      projects: [],
+      durationHours: 2,
+      level: 'Intermediate',
+      prerequisites: ['ts-section-2'],
+      status: 'available',
+      position: { x: 150, y: 20 },
+      order: 3,
+    },
+    {
+      id: 'ts-section-4',
+      title: 'Functions, Overloads, Generics',
+      description: 'Write reusable utilities without losing type safety using generics, constraints, and overloads.',
+      icon: '⚙️',
+      lessons: section_4_lessons,
+      projects: [],
+      durationHours: 4,
+      level: 'Intermediate',
+      prerequisites: ['ts-section-3'],
+      status: 'available',
+      position: { x: 150, y: 30 },
+      order: 4,
+    },
+    {
+      id: 'ts-section-5',
+      title: 'Utility Types & Advanced Composition',
+      description: 'Transform types like data using built-in utilities, template literals, and mapped types.',
+      icon: '🧪',
+      lessons: section_5_lessons,
+      projects: [],
+      durationHours: 3,
+      level: 'Advanced',
+      prerequisites: ['ts-section-4'],
+      status: 'available',
+      position: { x: 150, y: 40 },
+      order: 5,
+    },
+    {
+      id: 'ts-section-6',
+      title: 'Runtime Safety & Type Guards',
+      description: 'Make types match reality using schema validation (Zod) and custom type guards for complex states.',
+      icon: '🛡️',
+      lessons: section_6_lessons,
+      projects: [
+        { id: 'ts-hris-modeling', title: 'HRIS State Machine', description: 'Model complex HRIS time events using discriminated unions and Zod' }
+      ],
+      durationHours: 4,
+      level: 'Advanced',
+      prerequisites: ['ts-section-5'],
+      status: 'available',
+      position: { x: 150, y: 50 },
+      order: 6,
+    },
+  ],
+};

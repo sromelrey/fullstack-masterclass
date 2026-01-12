@@ -1,6 +1,7 @@
 // Roadmap Data Structure for Course Platform
 
 import {  javascriptRoadmap } from "./js-roadmap";
+import { typescriptRoadmap } from "./ts-roadmap";
 import { reactRoadmap } from "./reactjs-roadmap";
 import { LessonType } from "./courseData";
 
@@ -58,5 +59,6 @@ export interface Roadmap {
 // All roadmaps combined
 export const allRoadmaps: Record<string, Roadmap> = {
   javascript: javascriptRoadmap,
+  typescript: typescriptRoadmap,
   react: reactRoadmap,
 };
