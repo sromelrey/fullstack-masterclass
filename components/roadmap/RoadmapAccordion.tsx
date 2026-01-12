@@ -159,7 +159,7 @@ export const RoadmapAccordion = ({ modules, onLessonClick }: RoadmapAccordionPro
                       {module.lessons.map((lesson, lessonIndex) => (
                         <button
                           key={lesson.id}
-                          onClick={() => onLessonClick?.(module.id, lesson.id)}
+                          onClick={() => onLessonClick?.(module.id, lesson.slug)}
                           className="flex items-center gap-3 w-full p-3 rounded-lg text-left transition-colors hover:bg-white/5 group"
                         >
                           {/* Lesson Number */}

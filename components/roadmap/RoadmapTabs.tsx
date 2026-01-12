@@ -9,9 +9,9 @@ interface RoadmapTabsProps {
 
 const roadmaps = [
   { id: 'javascript', label: 'JavaScript' },
+  { id: 'typescript', label: 'TypeScript' },
   { id: 'react', label: 'React' },
   { id: 'node', label: 'Node.js' },
-  { id: 'fullstack', label: 'Full-Stack' },
 ];
 
 export const RoadmapTabs = ({ activeRoadmap, onRoadmapChange }: RoadmapTabsProps) => {
