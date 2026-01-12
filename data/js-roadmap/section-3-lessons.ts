@@ -100,7 +100,7 @@ Strings represent text data. They can be created with single quotes, double quot
 
 <code>const name = 'Alice';</code>
 <code>const greeting = "Hello";</code>
-<code>const message = \`Hi, \${name}!\`;</code>
+<code>const message = \`Hi, ` + `$` + `{name}!\`;</code>
 
 <h3>Key Points:</h3>
 • Strings are immutable—you can't change individual characters
@@ -496,7 +496,7 @@ Values are coerced to strings when:
 <code>"5" + 1        // "51"</code>
 <code>"5" + null     // "5null"</code>
 <code>"5" + undefined // "5undefined"</code>
-<code>\`Value: \${42}\`  // "Value: 42"</code>
+<code>\`Value: ` + `$` + `{42}\`</code>  // "Value: 42"
 
 <h2>Number Coercion</h2>
 

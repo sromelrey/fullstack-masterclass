@@ -21,9 +21,9 @@ const RoadmapContent = () => {
 
   const currentRoadmap = allRoadmaps[activeRoadmap];
 
-  const handleLessonClick = (moduleId: string, lessonId: string) => {
+  const handleLessonClick = (moduleId: string, lessonSlug: string) => {
     // Navigate to lesson page (you can customize this route)
-    router.push(`/courses/${activeRoadmap}/${moduleId}/${lessonId}`);
+    router.push(`/courses/${activeRoadmap}/${moduleId}/${lessonSlug}`);
   };
 
   // Calculate total stats
