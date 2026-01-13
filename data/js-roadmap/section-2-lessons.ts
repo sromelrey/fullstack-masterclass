@@ -116,238 +116,343 @@ And it will give us a basis to understand what's happening <em>under the hood</e
             content: 'These three concepts—Syntax Parsers, Lexical Environments, and Execution Contexts—form the mental model for everything else in JavaScript. If something feels confusing later, come back to these fundamentals. Understanding the "why" makes the "how" much easier.',
           },
         },
+
         { 
-          id: 'l1-0a', 
-          title: 'A Brief History of JavaScript', 
-          slug: 'javascript-history', 
-          durationMin: 8,
-          type: 'article',
-          description: `<h1>A Brief History of JavaScript</h1>
-
-Before we dive deep into the language, let's take a moment to understand <strong>where JavaScript came from</strong>. Knowing its origins helps explain many of its quirks and design decisions.
-
-<h2>The Birth of JavaScript (1995)</h2>
-
-JavaScript was created by <strong>Brendan Eich</strong> at Netscape Communications in <strong>just 10 days</strong> in May 1995. Yes, you read that right—10 days. This rapid development timeline explains some of JavaScript's infamous "weird parts."
-
-The browser wars were heating up. Netscape Navigator was competing with Microsoft's Internet Explorer, and Netscape wanted a scripting language that could make web pages interactive. They needed something <em>fast</em>.
-
-<h2>The Name Game</h2>
-
-JavaScript has had quite the identity crisis:
-
-• <b>Mocha</b> – The original internal codename
-• <b>LiveScript</b> – The official name when it first shipped in Netscape Navigator 2.0 (September 1995)
-• <b>JavaScript</b> – Renamed in December 1995 as part of a marketing partnership with Sun Microsystems
-
-<h3>Wait, is JavaScript related to Java?</h3>
-
-<strong>No.</strong> Despite the similar name, JavaScript and Java are fundamentally different languages. The name was a <em>marketing decision</em>—Java was hot at the time, and Netscape wanted to ride that wave. As the saying goes: "Java is to JavaScript as ham is to hamster."
-
-<h2>ECMAScript: The Standard</h2>
-
-To ensure JavaScript worked consistently across browsers, it was submitted to <strong>ECMA International</strong> for standardization in 1996. The official name of the standard is <b>ECMAScript</b> (or ES for short).
-
-Key milestones:
-
-• <b>ES1 (1997)</b> – First edition of the standard
-• <b>ES3 (1999)</b> – Added regular expressions, try/catch, and more
-• <b>ES5 (2009)</b> – Strict mode, JSON support, array methods
-• <b>ES6/ES2015 (2015)</b> – The big one! Classes, arrow functions, let/const, promises, modules
-• <b>ES2016+</b> – Annual releases with incremental improvements
-
-<h2>JavaScript Today</h2>
-
-JavaScript has grown far beyond its browser origins:
-
-• <b>Frontend</b>: React, Vue, Angular, Svelte
-• <b>Backend</b>: Node.js, Deno, Bun
-• <b>Mobile</b>: React Native, Ionic
-• <b>Desktop</b>: Electron
-• <b>IoT</b>: Johnny-Five, Espruino
-
-From a 10-day prototype to the <strong>most widely used programming language in the world</strong>—JavaScript's journey is nothing short of remarkable.`,
-          learningPoints: [
-            'JavaScript was created by Brendan Eich at Netscape in just 10 days (1995)',
-            'The name evolved from Mocha → LiveScript → JavaScript (marketing tie to Java)',
-            'ECMAScript is the official standard (ES6/ES2015 was a major milestone)',
-            'JavaScript now runs everywhere: browsers, servers, mobile, desktop, and IoT',
-          ],
-          proTip: {
-            title: 'Understanding the Past',
-            content: 'When you encounter something "weird" in JavaScript, ask yourself: "What problem were they solving in 1995 with only 10 days?" This mindset turns frustration into understanding.',
-          },
-        },
-        { 
-          id: 'l1-0b', 
-          title: 'JavaScript Keywords and Reserved Words', 
-          slug: 'keywords-reserved-words', 
-          durationMin: 5,
-          type: 'article',
-          description: `<h1>JavaScript Keywords and Reserved Words</h1>
-
-Every programming language has <strong>reserved words</strong>—special words that the language uses for its own purposes. In JavaScript, these words have specific meanings, and you <em>cannot</em> use them as variable names, function names, or identifiers.
-
-<h2>What Are Keywords?</h2>
-
-<b>Keywords</b> are words that JavaScript has set aside because they perform specific actions or have special meanings in the language. When the syntax parser reads your code, it recognizes these words and treats them differently.
-
-For example, when the parser sees <code>function</code>, it knows you're about to define a function. When it sees <code>if</code>, it knows a conditional statement is coming.
-
-<h2>Current JavaScript Keywords</h2>
-
-Here are the keywords you'll encounter most frequently:
-
-<h3>Declaration Keywords</h3>
-<code>var</code>, <code>let</code>, <code>const</code>, <code>function</code>, <code>class</code>
-
-<h3>Control Flow Keywords</h3>
-<code>if</code>, <code>else</code>, <code>switch</code>, <code>case</code>, <code>default</code>, <code>break</code>, <code>continue</code>, <code>return</code>
-
-<h3>Loop Keywords</h3>
-<code>for</code>, <code>while</code>, <code>do</code>, <code>in</code>, <code>of</code>
-
-<h3>Error Handling Keywords</h3>
-<code>try</code>, <code>catch</code>, <code>finally</code>, <code>throw</code>
-
-<h3>Other Important Keywords</h3>
-<code>this</code>, <code>new</code>, <code>typeof</code>, <code>instanceof</code>, <code>void</code>, <code>delete</code>, <code>async</code>, <code>await</code>, <code>yield</code>, <code>import</code>, <code>export</code>, <code>extends</code>, <code>super</code>, <code>static</code>
-
-<h2>Reserved for Future Use</h2>
-
-JavaScript also reserves words for <em>potential future use</em>. Even if they don't do anything today, you can't use them as identifiers:
-
-<code>enum</code>, <code>implements</code>, <code>interface</code>, <code>package</code>, <code>private</code>, <code>protected</code>, <code>public</code>
-
-<h2>Strict Mode Additional Reservations</h2>
-
-In strict mode (<code>'use strict'</code>), additional words are reserved:
-
-<code>arguments</code>, <code>eval</code>, <code>let</code>, <code>static</code>, <code>yield</code>
-
-<h2>Common Gotchas</h2>
-
-• You <strong>cannot</strong> name a variable <code>class</code> or <code>function</code>
-• <code>await</code> is reserved inside async functions
-• <code>undefined</code> and <code>NaN</code> are not keywords, but you still shouldn't reassign them
-• Be careful with <code>arguments</code>—it's a special object inside functions`,
-          learningPoints: [
-            'Keywords are reserved words with special meaning to the JavaScript parser',
-            'You cannot use keywords as variable names, function names, or identifiers',
-            'Some words are reserved for future ECMAScript versions',
-            'Strict mode reserves additional words like arguments and eval',
-          ],
-          proTip: {
-            title: 'Naming Best Practices',
-            content: 'If your IDE highlights a variable name in a different color or gives you an error, it might be a reserved word. Use descriptive names like userClass instead of class to avoid conflicts.',
-          },
-        },
-        { 
-          id: 'l1-0c', 
-          title: 'Variables: var, let, and const', 
-          slug: 'var-let-const', 
+          id: 'l1-1', 
+          title: 'Name/Value Pairs and Objects', 
+          slug: 'name-value-pairs', 
           durationMin: 15,
           type: 'article',
-          description: `<h1>Variables: var, let, and const</h1>
+          description: `<h1>Name/Value Pairs and Objects</h1>
 
-Variables are fundamental to any programming language. They're containers that <strong>store data values</strong>. In JavaScript, we have three ways to declare variables: <code>var</code>, <code>let</code>, and <code>const</code>. Understanding the differences is <em>crucial</em>.
+Before we dive deep into the technical implementation of objects in JavaScript, we need to understand the fundamental concept they're built upon: <strong>Name/Value Pairs</strong>.
 
-<h2>Variable Declaration vs Initialization</h2>
+<h2>What is a Name/Value Pair?</h2>
 
-Before we dive in, let's clarify two important terms:
+At its simplest, a <b>Name/Value pair</b> is a name which maps to a unique value. 
 
-• <b>Declaration</b>: Creating a variable (reserving memory for it)
-• <b>Initialization</b>: Assigning a value to the variable
+<h3>The Rules of Name/Value Pairs:</h3>
+<ul>
+  <li><b>Unique Mapping:</b> A name can be defined more than once in your code, but it can only have <em>one value</em> in any given <strong>execution context</strong>.</li>
+  <li><b>Context Matters:</b> In any particular section of code that is running, a name exists with exactly one value assigned to it.</li>
+  <li><b>Flexible Values:</b> That value doesn't have to be a simple piece of data—it can actually be <em>another collection</em> of Name/Value pairs.</li>
+</ul>
 
-<h2>var: The Original (ES5 and earlier)</h2>
+<p>You use these every day in code: <code>Address = '100 Main Street'</code>. <strong>Address</strong> is the name, and <strong>'100 Main Street'</strong> is the value.</p>
 
-<code>var</code> was the only way to declare variables before ES6. It has two key characteristics:
+<h2>What is an Object in JavaScript?</h2>
 
-<h3>1. Function Scope</h3>
-Variables declared with <code>var</code> are scoped to the <em>function</em> they're declared in, not the block.
+This leads us to the simplest possible definition of an object in JavaScript:
 
-<h3>2. Hoisting</h3>
-<code>var</code> declarations are "hoisted" to the top of their scope. The declaration moves up, but not the initialization.
+<blockquote>
+  <strong>An Object is a collection of Name/Value pairs.</strong>
+</blockquote>
 
-<b>The Problem:</b> This can lead to confusing bugs. A variable can be used before it appears to be declared, returning <code>undefined</code> instead of throwing an error.
+While other programming languages might have more complex mathematical or structural definitions for objects, in JavaScript, that's really all they are at their core.
 
-<h2>let: Block-Scoped Variables (ES6+)</h2>
+<h2>Nesting and Structure</h2>
 
-<code>let</code> was introduced in ES6 to address the quirks of <code>var</code>:
+The power of objects comes from the fact that a "Value" can be another list of Name/Value pairs. This allows us to create complex, nested structures:
 
-<h3>1. Block Scope</h3>
-Variables declared with <code>let</code> are scoped to the <em>block</em> they're in (inside <code>{}</code>).
+<ul>
+  <li><b>Address</b> could be an object (a collection).</li>
+  <li>Inside <b>Address</b>, we have Name/Value pairs like <b>Street</b>: 'Main' and <b>Number</b>: 100.</li>
+  <li>Inside <b>Address</b>, we could even have another object called <b>Apartment</b>.</li>
+  <li>Inside <b>Apartment</b>, we have <b>Floor</b>: 3 and <b>Number</b>: 301.</li>
+</ul>
 
-<h3>2. Temporal Dead Zone (TDZ)</h3>
-Unlike <code>var</code>, you <strong>cannot</strong> access a <code>let</code> variable before its declaration. Attempting to do so throws a <code>ReferenceError</code>.
+<p>See how they nest down? <strong>Apartment</strong> is an object because its value is a collection of pairs. <strong>Address</strong> is an object because its value is a collection of pairs.</p>
 
-<h3>3. No Re-declaration</h3>
-You cannot declare the same variable twice with <code>let</code> in the same scope.
-
-<h2>const: Constants (ES6+)</h2>
-
-<code>const</code> is like <code>let</code>, but with one additional rule:
-
-<h3>Immutable Binding</h3>
-Once a <code>const</code> variable is assigned, you <strong>cannot reassign</strong> it to a different value.
-
-<b>Important:</b> "Immutable binding" does NOT mean "immutable value." If you assign an object or array to a <code>const</code>, you can still modify the object's properties or array's elements—you just can't reassign the variable itself.
-
-<h2>Quick Comparison</h2>
-
-| Feature | var | let | const |
-|---------|-----|-----|-------|
-| Scope | Function | Block | Block |
-| Hoisting | Yes (undefined) | Yes (TDZ) | Yes (TDZ) |
-| Re-declaration | Allowed | Not allowed | Not allowed |
-| Re-assignment | Allowed | Allowed | Not allowed |
-
-<h2>Best Practices</h2>
-
-1. <b>Default to const</b> – Use <code>const</code> by default for all variables
-2. <b>Use let when needed</b> – Switch to <code>let</code> only when you need to reassign
-3. <b>Avoid var</b> – In modern JavaScript, there's rarely a reason to use <code>var</code>
-
-This approach makes your code more predictable and easier to reason about.`,
+<h2>Keep it Simple</h2>
+Don't think any more deeply about objects in JavaScript than this for now. We'll explore the "weird" things you can do with them later, but always remember this fundamental truth: <strong>it's just a collection of Name/Value pairs.</strong>`,
           learningPoints: [
-            'var is function-scoped and hoisted (can lead to unexpected behavior)',
-            'let is block-scoped and has a Temporal Dead Zone (TDZ)',
-            'const creates an immutable binding (not an immutable value)',
-            'Best practice: default to const, use let when reassignment is needed, avoid var',
+            'A Name/Value pair is a name mapping to a unique value in a specific context',
+            'In JavaScript, an object is simply a collection of Name/Value pairs',
+            'Values within a Name/Value pair can be other collections (objects)',
+            'Objects can be nested deeply to represent complex data structures',
           ],
           proTip: {
-            title: 'The const Misconception',
-            content: 'Many developers think const makes values immutable. It doesn\'t! It only prevents reassignment. const user = {}; user.name = "John"; is perfectly valid. To make objects truly immutable, use Object.freeze().',
+            title: 'The Simple Truth',
+            content: 'Whenever you feel overwhelmed by complex object-oriented patterns in JavaScript, strip it back to this: Is it just a collection of names and values? Yes. Everything else is just a pattern built on top of that.',
           },
           codeExample: {
-            fileName: 'var-let-const.js',
-            code: `// var: function-scoped, hoisted
-function varExample() {
-  console.log(x); // undefined (hoisted)
-  var x = 10;
-  if (true) {
-    var x = 20; // Same variable!
+            fileName: 'objects.js',
+            code: `// A simple Name/Value pair
+var address = '100 Main Street';
+
+// An Object: A collection of Name/Value pairs
+var addressObject = {
+  street: 'Main',
+  number: 100,
+  // Nested Object: A value that is another collection
+  apartment: {
+    floor: 3,
+    number: 301
   }
-  console.log(x); // 20
+};`
+          }
+        },
+
+        { 
+          id: 'l1-2', 
+          title: 'The Global Environment and the Global Object', 
+          slug: 'global-environment-global-object', 
+          durationMin: 15,
+          type: 'article',
+          description: `<h1>The Global Environment and the Global Object</h1>
+
+Whenever you run JavaScript code, it doesn't just run in a vacuum. It's always wrapped inside an <strong>Execution Context</strong>. 
+
+<h2>The Base Execution Context</h2>
+
+The JavaScript engine (the program that parses and executes your code) creates a base wrapper for your code called the <strong>Global Execution Context</strong>. Even if your file is completely empty, the engine still does two major things for you:
+
+<ul>
+  <li><b>Creates a Global Object:</b> A base object available everywhere in your code.</li>
+  <li><b>Creates a special variable:</b> Called <code>this</code>.</li>
+</ul>
+
+<h2>The Global Object inside the Browser</h2>
+
+When you're running JavaScript in a web browser, the <strong>Global Object</strong> is the <code>window</code> object. Each browser tab has its own execution context and its own global <code>window</code> object.
+
+<p>In the Global Execution Context (at the base level, not inside any function), <code>this</code> and <code>window</code> are exactly the same thing. You can verify this in the console by typing <code>this === window</code>.</p>
+
+<h2>What does "Global" mean?</h2>
+
+In JavaScript, <strong>Global</strong> simply means <em>"not inside a function."</em> 
+
+<p>If you declare a variable or a function at this level, it gets special treatment: it is automatically attached to the Global Object.</p>
+
+<h2>The Global execution context includes:</h2>
+<ul>
+  <li><b>Global Object:</b> (e.g., <code>window</code> in browsers).</li>
+  <li><b>'this' variable:</b> Points to the global object at the base level.</li>
+  <li><b>Outer Environment:</b> Since you're at the global level, there is no "outer" environment, so it's <code>null</code>.</li>
+  <li><b>Your Code:</b> The variables and functions you write.</li>
+</ul>
+
+<h3>Example: Global Variables</h3>
+<p>If you write <code>var a = 'Hello World!';</code> in your script (outside any function), you can access it via <code>a</code> or <code>window.a</code>. It's sitting right there on the global object!</p>`,
+          learningPoints: [
+            'Every JS program runs inside an Execution Context',
+            'The Global Execution Context creates the Global Object and "this" automatically',
+            'In browsers, the Global Object is the window object',
+            'Code not inside a function is considered Global',
+            'Global variables and functions are attached to the Global Object',
+          ],
+          proTip: {
+            title: 'Empty but Active',
+            content: 'Even an empty .js file creates an execution context! Open your browser console on a blank page and type "this" or "window" to see the JS engine already at work.',
+          },
+          codeExample: {
+            fileName: 'global-context.js',
+            code: `// This code is at the global level (not in a function)
+var greeting = 'Hello World!';
+
+function logGreeting() {
+  console.log(greeting);
 }
 
-// let: block-scoped, TDZ
-function letExample() {
-  // console.log(y); // ReferenceError!
-  let y = 10;
-  if (true) {
-    let y = 20; // Different variable
-    console.log(y); // 20
-  }
-  console.log(y); // 10
-}
+// These are now attached to the global object
+console.log(window.greeting); // 'Hello World!'
+window.logGreeting();         // Logs 'Hello World!'
 
-// const: immutable binding, not immutable value
-const user = { name: 'Alice' };
-user.name = 'Bob'; // ✓ Allowed
-// user = {}; // ✗ TypeError: Assignment to constant`
+// At this level, 'this' is the global object
+console.log(this === window); // true`
           },
         },
-        { id: 'l1-1', title: 'Syntax Parsers, Execution Contexts, and Lexical Environments', slug: 'syntax-parsers', durationMin: 45 },
-        { id: 'l1-2', title: 'Name/Value Pairs and Objects', slug: 'name-value-pairs', durationMin: 30 },
+          
+        { 
+          id: 'l1-3', 
+          title: 'The execution context - Creation and hoisting', 
+          slug: 'creation-and-hoisting', 
+          durationMin: 15,
+          type: 'article',
+          imageUrl: '/JS Execution Context Creation Phase.png',
+          description: `<h1>The Execution Context: Creation and Hoisting</h1>
+
+JavaScript wrapping our code in an Execution Context is just the beginning. There's a "weird" phenomenon called <strong>Hoisting</strong> that we need to understand by looking at how the JavaScript engine creates that context.
+
+<h2>The Hoisting Phenomenon</h2>
+
+In most programming languages, you can't use a variable or function before it's declared. But in JavaScript, you can call a function even if it's defined later in the file. 
+
+However, variables behave differently: they are available, but their value is <code>undefined</code>. If you try to access a variable that isn't declared anywhere, you get an error; but if it's declared later, you get <code>undefined</code>.
+
+<h2>The "Hoisting" Mental Model</h2>
+<p>Hoisting is often explained as the JavaScript engine "moving" variables and functions to the top of the file. This is <strong>not</strong> what's actually happening. Your code isn't physically moving; it's simply that the engine has already processed it before running it.</p>
+
+<h2>The Two Phases of Execution Context</h2>
+
+The reason for this behavior is that the execution context is created in <strong>two distinct phases</strong>:
+
+<h3>Phase 1: The Creation Phase</h3>
+As the parser runs through your code, it recognizes where you've created variables and functions. 
+<ul>
+  <li><b>Memory Allocation:</b> The engine sets aside memory space for all variables and functions in that context.</li>
+  <li><b>Functions:</b> The entire function (its name and the code inside) is placed into memory in its entirety.</li>
+  <li><b>Variables:</b> Memory is set aside, but the value is initialized with a placeholder called <code>undefined</code>. The engine doesn't know the actual value yet.</li>
+</ul>
+
+<h3>Phase 2: The Execution Phase</h3>
+Now the engine runs your code <strong>line by line</strong>. This is when assignments (like <code>a = 'Hello World'</code>) actually happen.
+
+<blockquote>
+  <strong>Crucial Rule:</strong> Never rely on hoisting. While it technically works for functions, it makes your code harder to read and can lead to bugs with <code>undefined</code> variables. Always declare your variables and functions at the top.
+</blockquote>`,
+          learningPoints: [
+            'Hoisting is the result of the Creation Phase of the Execution Context',
+            'The JavaScript engine sets aside memory for variables and functions before executing code',
+            'Functions are hoisted in their entirety (name and code)',
+            'Variables are hoisted but initialized as "undefined"',
+            'Code execution (assignments) happens in the second phase, line by line',
+          ],
+          proTip: {
+            title: 'Avoid the Trap',
+            content: 'Just because you CAN call functions before they are defined doesn\'t mean you SHOULD. Keep your code clean and predictable by declaring everything before you use it.',
+          },
+          codeExample: {
+            fileName: 'hoisting.js',
+            code: `b(); // "Called b"
+console.log(a); // undefined
+
+var a = 'Hello World!';
+
+function b() {
+  console.log('Called b');
+}
+
+// Accessing something that doesn't exist at all:
+// console.log(c); // Uncaught ReferenceError: c is not defined`
+          }
+        },
+
+        { 
+          id: 'l1-4', 
+          title: 'Conceptual Aside: JavaScript and \'undefined\'', 
+          slug: 'javascript-undefined', 
+          durationMin: 10,
+          type: 'article',
+          description: `<h1>Conceptual Aside: JavaScript and 'undefined'</h1>
+
+Before we move into execution, we need to clarify a term that often causes confusion: <strong>undefined</strong>.
+
+<h2>The "Not Defined" vs "undefined" Confusion</h2>
+
+In JavaScript, these two sound almost identical, but they mean very different things:
+
+• <b>Not Defined (ReferenceError):</b> This means the variable has <em>never been declared</em>. The JavaScript engine has no memory space set aside for it.
+• <b>undefined:</b> This is a <strong>special value</strong> that JavaScript assigns to a variable during the creation phase of the execution context.
+
+<h2>undefined is a Value</h2>
+
+One of the most important things to realize is that <code>undefined</code> isn't just "empty" or "non-existent." It is a special keyword and a <b>primitive value</b> that actually takes up memory space.
+
+It's the placeholder the JavaScript engine uses to say: <em>"I know this variable exists, but I haven't been told its actual value yet."</em>
+
+<h2>Checking for undefined</h2>
+
+You can check if a variable is <code>undefined</code> using the equality operator (preferably triple equals <code>===</code> for safety).
+
+<p>Notice that <code>undefined</code> isn't wrapped in quotes. It's not a string; it's a built-in value in the language.</p>
+
+<blockquote>
+  <strong>🚨 WARNING: Never set a variable to undefined yourself.</strong>
+  While JavaScript allows you to write <code>a = undefined;</code>, it's a bad practice. It's better to let <code>undefined</code> exclusively mean "the value was never set by the programmer." This makes debugging much easier—if you see <code>undefined</code>, you know it's because the engine set it, not because you manually reset it later.
+</blockquote>`,
+          learningPoints: [
+            'The difference between "not defined" (ReferenceError) and the value "undefined"',
+            'How the JS engine uses undefined as a placeholder during the Creation Phase',
+            'Why undefined is a special primitive value, not just a string or "nothing"',
+            'Why you should never manually assign the value undefined to a variable',
+          ],
+          proTip: {
+            title: 'Debugging Tip',
+            content: 'Let "undefined" be the language\'s way of telling you "I don\'t have a value yet." If you need to clear a value yourself, use "null" instead. This distinction helps you know exactly where a value (or lack thereof) came from.',
+          },
+          codeExample: {
+            fileName: 'undefined-check.js',
+            code: `var a;
+console.log(a); // undefined
+
+if (a === undefined) {
+  console.log('a is undefined!');
+} else {
+  console.log('a is defined');
+}
+
+// Setting a value
+a = 'Hello World!';
+
+if (a === undefined) {
+  console.log('a is undefined!');
+} else {
+  console.log('a is defined');
+}
+
+// DANGER: Don't do this!
+// a = undefined;`
+          }
+        },
+
+        { 
+          id: 'l1-5', 
+          title: 'Execution context - Code Execution', 
+          slug: 'code-execution', 
+          durationMin: 1,
+          type: 'article',
+          
+          imageUrl: '/JS Execution Context Execution Phase.png',
+          description: `<h1>Execution Context: The Execution Phase</h1>
+
+Once the <strong>Creation Phase</strong> is complete and all variables and functions are set up in memory, the JavaScript engine moves to the second phase: the <b>Execution Phase</b>.
+
+<h2>Running Line by Line</h2>
+
+The execution phase is straightforward: the engine runs your code exactly as you've written it, line by line. It interprets, converts, and executes your instructions on the computer.
+
+<h2>Revisiting the Example</h2>
+
+Let's look at how the engine handles our previous hoisting example during the execution phase:
+
+<ol>
+  <li><b>Line 1:</b> <code>b();</code> – The engine looks in memory, finds the <code>b</code> function, and executes it.</li>
+  <li><b>Line 2:</b> <code>console.log(a);</code> – The engine looks for <code>a</code> in memory. It finds it, but since we haven't reached the assignment yet, it still has the placeholder value <code>undefined</code> from the creation phase.</li>
+  <li><b>Line 4:</b> <code>var a = 'Hello World!';</code> – The engine executes the assignment. It replaces the <code>undefined</code> placeholder in memory with the actual string <code>'Hello World!'</code>.</li>
+  <li><b>Line 10:</b> <code>console.log(a);</code> – Now, when the engine looks for <code>a</code>, it finds the updated value <code>'Hello World!'</code>.</li>
+</ol>
+
+<h2>Summary of the Two Phases</h2>
+
+By understanding these two phases—<b>Creation</b> (setting up memory) and <b>Execution</b> (running code line-by-line)—JavaScript's behavior stops feeling "weird" and starts being predictable.
+
+<blockquote>
+  <strong>Remember:</strong> The JavaScript engine is constantly making decisions about your code before it even starts running it. Understanding this "wrapper" behavior is the key to deep JavaScript mastery.
+</blockquote>`,
+          learningPoints: [
+            'The Execution Phase involves running code line by line',
+            'Assignments happen during the Execution Phase, not the Creation Phase',
+            'Why variables transition from undefined to their actual values',
+            'The importance of the line-by-line nature of the JS engine',
+          ],
+          proTip: {
+            title: 'Predictability is Power',
+            content: 'Knowing that assignments happen during the execution phase allows you to predict exactly when a variable will become available with its intended value.',
+          },
+          codeExample: {
+            fileName: 'execution-phase.js',
+            code: `function b() {
+  console.log('Called b');
+}
+
+b(); // Executed immediately
+
+console.log(a); // Output: undefined (Creation phase placeholder)
+
+var a = 'Hello World!'; // Execution phase assignment
+
+console.log(a); // Output: 'Hello World!' (Updated value in memory)`
+          }
+        },
       ]
